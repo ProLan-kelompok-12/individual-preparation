@@ -3,7 +3,6 @@ plugins {
 	id 'org.springframework.boot' version '4.0.2'
 	id 'io.spring.dependency-management' version '1.1.7'
 	id 'checkstyle'
-	id 'jacoco'
 	id "org.sonarqube" version "4.4.1.3373"
 }
 
@@ -34,15 +33,6 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
-	finalizedBy jacocoTestReport
-}
-
-jacocoTestReport {
-	dependsOn test
-	reports {
-		xml.required = true
-		html.required = true
-	}
 }
 
 sonar {
@@ -50,6 +40,5 @@ sonar {
 		property "sonar.projectKey", "advprog-2026-B12-project_individual-preparation"
 		property "sonar.organization", "advprog-2026-b12-project"
 		property "sonar.host.url", "https://sonarcloud.io"
-		property "sonar.coverage.jacoco.xmlReportPaths", "${layout.buildDirectory.get()}/reports/jacoco/test/jacocoTestReport.xml"
 	}
 }

@@ -8,6 +8,7 @@ on:
   pull_request:
     branches:
       - main
+      - chore/ci-setup-fadhil
 
 jobs:
   build:
@@ -43,4 +44,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: ./gradlew build jacocoTestReport sonar --info
+        run: ./gradlew build sonar --info
