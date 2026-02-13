@@ -11,6 +11,54 @@ class ArithmeticUtilityTest {
     private final ArithmeticUtility arithmeticUtility = new ArithmeticUtility();
 
     @Test
+    @DisplayName("Addition of two positive numbers")
+    void add_PositiveNumbers_Success() {
+        double num1 = 4;
+        double num2 = 5;
+        double expectedResult = 9;
+
+        double actualResult = arithmeticUtility.add(num1, num2);
+
+        assertEquals(expectedResult, actualResult, 0.0001);
+    }
+
+    @Test
+    @DisplayName("Addition of a positive and negative number")
+    void add_NegativeNumber_Success() {
+        double num1 = -4;
+        double num2 = 5;
+        double expectedResult = 1;
+
+        double actualResult = arithmeticUtility.add(num1, num2);
+
+        assertEquals(expectedResult, actualResult, 0.0001);
+    }
+
+    @Test
+    @DisplayName("Addition of two negative numbers")
+    void add_TwoNegativeNumbers_Success() {
+        double num1 = -1;
+        double num2 = -2;
+        double expectedResult = -3;
+
+        double actualResult = arithmeticUtility.add(num1, num2);
+
+        assertEquals(expectedResult, actualResult, 0.0001);
+    }
+
+    @Test
+    @DisplayName("Addition with floating point numbers")
+    void add_FloatingPoint_Success() {
+        double num1 = 2.756;
+        double num2 = 5.80;
+        double expectedResult = 8.556;
+
+        double actualResult = arithmeticUtility.add(num1, num2);
+
+        assertEquals(expectedResult, actualResult, 0.0001);
+    }
+
+    @Test
     @DisplayName("Subtraction with positive results")
     void sub_Positive_Success() {
         int numLow = 2;
